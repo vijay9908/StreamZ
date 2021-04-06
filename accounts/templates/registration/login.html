@@ -4,7 +4,7 @@
 <form method="POST">
     {% csrf_token %} {{form.as_p}}
     <button>Login</button>
-
+    <h5>Don't have an account? <a href="/accounts/register"><strong>register here</strong></a>!</h5>
 </form>
 
 {% endblock %}

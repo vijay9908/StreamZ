@@ -1,3 +1,24 @@
-{% extends 'index.html' %} {% block content %}
+{% extends 'index.html' %} {% load static %} {% block content %}
 <h2>Dashboard Views: Welcome {{ user.username}}</h2>
-{% endblock %}
+
+<div class="container">
+    <div class="row my-4">
+        {% for video in videos %}
+        <div class="col-3">
+            <a href="{% url 'watch_video' video.id %}" style="text-decoration: none;">
+                <!-- <img src="{% static video.thumbnail.url %}" class="w-100"> -->
+                <!-- @Mounish,if using static -> temp -->
+                <img src="{{ video.thumbnail.url }}" class="w-100">
+            </a>
+            <a href="{% url 'watch_video' video.id %}" style="text-decoration: none;">
+                <h6>{{video.title}}</h6>
+            </a>
+
+            <!-- <span class="text-muted">{{video.video_views.all.count}} views • {{video.pub_date}}</span> -->
+        </div>
+        {% endfor %}
+        <hr>
+
+    </div>
+
+    {% endblock %}

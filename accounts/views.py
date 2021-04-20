@@ -5,7 +5,7 @@ from django.contrib.auth import login
 from django.contrib import messages
 from django.contrib.auth.models import User
 from .models import Video, UserData
-from django.core.exceptions import ObjectDoesNotExist   # for further icing subhash
+from django.core.exceptions import ObjectDoesNotExist   # for further icing @subhash
 
 # Create your views here.
 

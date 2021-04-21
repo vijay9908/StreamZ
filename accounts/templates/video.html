@@ -3,8 +3,6 @@
 
 <video name='demo' controls autoplay width='50%' height='40%'>
     <!-- <source src="{{ MEDIA_URL }}sample_video.mp4" type="video/mp4"></source> -->
-    <!-- <source src="{% static video.video_file.url %}" type="video/mp4"> -->
-    <!--  <source src="{% static video.video_file.url %}" type="video/mp4"> -->
-    <source src="{{media}}/sample.mp4" type ="video/mp4">
+    <source src="{{ video.video_file.url }}" type="video/mp4">
     
 </video> {% endblock %}

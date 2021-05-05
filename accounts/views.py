@@ -45,7 +45,9 @@ def register_view(request):
         form = UserCreationForm(request.POST or None)
         if form.is_valid():
             form.save()
-            redirect('registration/login.html')  
+            messages.success(request, "Account registered successfully")
+        else:
+            pass
     else:
         form = UserCreationForm()
     context = {'form': form}

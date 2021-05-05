@@ -46,6 +46,7 @@ def register_view(request):
         if form.is_valid():
             form.save()
             messages.success(request, "Account registered successfully")
+            return redirect('login_url')
         else:
             pass
     else:
@@ -55,6 +56,7 @@ def register_view(request):
     #return render(request, 'register.html',context)
 
 def login_view(request):
+    messages.warning(request,"Reached here")
     return render(request, 'registration/login.html')
     #return render(request, 'login.html')
 

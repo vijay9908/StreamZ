@@ -2,25 +2,21 @@
 
 <link rel="stylesheet" type="text/css" href="{% static 'accounts/login.css' %}">
 
-  <body>
+<body>
 
-<form class="box" method="post">
+    <form class="box" method="post">
 
-  <h2>Login</h2>
-  <div class="column">
-    <div class="column">
-            {% csrf_token %} {% for field in form %}
-            <div class="field">
-                <input placeholder="{{field.html_name}}" {{ field }}
+        <h2>Login</h2>
+        <div class="column">
+            <div class="column">
+                {% csrf_token %} {% for field in form %}
+                <div class="field">
+                    <input placeholder="{{field.html_name}}" {{ field }} </div> {% endfor %}
+                    <button type="submit" class="button">Login</button>
+                </div>
             </div>
-            {% endfor %}
-            <button type="submit" class="button">Login</button>
-        </form>
-    </div>
-  </div>
+    </form>
 
-</form>
-
-  </body>
+</body>
 
 {% endblock %}

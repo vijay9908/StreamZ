@@ -1,8 +1,13 @@
 {% extends 'index.html' %} {% load static %} {% block content %}
 
+<title>StreamZ-Login</title>
+
 <link rel="stylesheet" type="text/css" href="{% static 'accounts/login.css' %}">
 
+
 <body>
+    <div class="bg"></div>
+
 
     <form class="box" method="post">
 
@@ -15,7 +20,7 @@
                     <button type="submit" class="button">Login</button>
                 </div>
             </div>
-            <h6>Don't have an account? <a href="/accounts/register"><strong>register here!</strong></a></h6>
+            <h6>Don't have an account? <a href="{% url 'register' %}"><strong>register here!</strong></a></h6>
         </div>
     </form>
 

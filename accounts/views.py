@@ -45,7 +45,7 @@ def register_view(request):
         form = UserCreationForm(request.POST or None)
         if form.is_valid():
             form.save()
-            redirect('registration/login.html')  
+            return redirect('login_url')  
     else:
         form = UserCreationForm()
     context = {'form': form}
@@ -53,6 +53,7 @@ def register_view(request):
     #return render(request, 'register.html',context)
 
 def login_view(request):
+    messages.warning(request,"Reached here")
     return render(request, 'registration/login.html')
     #return render(request, 'login.html')
 

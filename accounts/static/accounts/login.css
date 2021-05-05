@@ -39,6 +39,11 @@ body{
     font-weight: 500;
   
   }
+  .box h6{
+  
+    color: white;
+  
+  }
   
   .box input[type = "text"],.box input[type = "password"]{
   
@@ -102,11 +107,6 @@ body{
   
     cursor: pointer;
   
-  }
-  .label{
-    color: white;
-    position: relative;
-    margin-left: -150px;
   }
   .box input[type = "submit"]:hover{
   

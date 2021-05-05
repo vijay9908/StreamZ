@@ -2,53 +2,34 @@
 
 <link rel="stylesheet" type="text/css" href="{% static 'accounts/register.css' %}">
 
-<h2>Create new account here</h2>
+<body>
 
-<form class="main-div" method="POST">
-    {% csrf_token %} {{ form.as_p}}
-    <button>Register</button>
-</form>
+    <form class="box" method="post">
 
+        <h5>Create new account here</h5>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- idi chudandi styling -->
-<!-- <div class="column">
-    <div class="column">
-        <h3 class="title ">Register</h3>
-        <form method="POST ">
-            {% csrf_token %} {% for field in form %}
-            <div class="field ">
+        <div class="column">
+            <div class="column">
                 {% csrf_token %}
-                <label for="{{ field.id_for_label }} " class="label ">{{ field.html_name }}</field></label> {{field}}
+                {% csrf_token %} {% for field in form %}
+                <div class="field">
+                    <input placeholder="{{field.html_name}}" {{ field }} </div> {% endfor %}
+                </div>
+                <button type="submit" class="button">Register</button>
             </div>
-            {% endfor %}
-            <button type="submit" class="button">Register</button>
-        </form>
-    </div>
-</div> -->
+        </div>
+        <div>
+            {% if messages %}
+            <ul>
+                {% for message in messages %}
+                <li class='messages'>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+        <h6>Already have an account? <a href="/accounts/login"><strong>login here!</strong></a></h6>
+    </form>
 
+</body>
 
 {% endblock %}

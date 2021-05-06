@@ -48,7 +48,6 @@ def register_view(request):
             messages.success(request, "Account registered successfully")
             #return redirect('login_url')
         else:
-            print(form.errors)
             messages.warning(request, form.errors)
             pass
     else:

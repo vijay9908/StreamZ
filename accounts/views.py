@@ -46,8 +46,9 @@ def register_view(request):
         if form.is_valid():
             form.save()
             messages.success(request, "Account registered successfully")
-            return redirect('login_url')
+            #return redirect('login_url')
         else:
+            messages.warning(request, "Username Already Exists")
             pass
     else:
         form = UserCreationForm()

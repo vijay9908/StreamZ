@@ -10,26 +10,36 @@
 
         <div class="column">
             <div class="column">
-                {% csrf_token %} {% csrf_token %} {% for field in form %}
+                {% csrf_token %} {% for field in form %}
                 <div class="field">
                     <input placeholder="{{field.html_name}}" {{ field }} </div> {% endfor %}
                 </div>
                 <button type="submit" class="button">Register</button>
             </div>
         </div>
+        
+        {% if messages %}
+        {% for message in messages %}
+        <p class="text-success">{{ message }}</p>
+        {% endfor %}
+        {% endif %}
 
-        {% if messages %} {% for message in messages %}
-        <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
-            <span type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" style="position: relative; margin-left: 270px;">x</span>
-            <li>{{message}}</li>
-        </div>
-        {% endfor %} {% endif %}
+        {% for error in form.username.errors %}
+        <p class="text-danger">{{ error }}</p>
+        {% endfor %}
 
+        {% if form.non_field_errors %}
+        {% for error in form.non_field_errors %}
+        <p class="text-danger">{{ error }}</p>
+        {% endfor %}
+        {% endif %}
 
         <h6>Already have an account? <a href="{% url 'login_url' %}"><strong>login here!</strong></a></h6>
     </form>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
 
 </body>
 

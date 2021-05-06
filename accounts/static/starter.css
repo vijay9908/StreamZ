@@ -1,0 +1,7 @@
+#starter {
+    border: 2px solid black;
+    padding: 100px;
+    background: url('media/images/starter_background.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}

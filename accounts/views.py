@@ -70,4 +70,6 @@ def profile(request):  #session_username
     context = {'session_obj': session_obj, 'user_data': profile_data}
     return render(request, 'profile.html', context)   #profile stuff - likith handle this.
 
-
+def starter_page(request):
+    context = {}
+    return render(request, 'starter.html', context)

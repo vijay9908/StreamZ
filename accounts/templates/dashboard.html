@@ -1,24 +1,130 @@
-{% extends 'index.html' %} {% load static %} {% block content %}
-<h2>Dashboard Views: Welcome {{ user.username}}</h2>
-<a href="{% url 'logout_url' %}">Logout</a>
-<div class="container">
-    <div class="row my-4">
-        {% for video in videos %}
-        <div class="col-3">
-            <a href="{% url 'watch_video' video.id %}" style="text-decoration: none;">
-                <!-- <img src="{% static video.thumbnail.url %}" class="w-100"> -->
-                <!-- @Mounish,if using static -> temp -->
-                <img src="{{ video.thumbnail.url }}" class="w-100">
-            </a>
-            <a href="{% url 'watch_video' video.id %}" style="text-decoration: none;">
-                <h6>{{video.title}}</h6>
-            </a>
+{% load static %}
+<!-- <h2>Dashboard Views: Welcome {{ user.username}}</h2> -->
 
-            <!-- <span class="text-muted">{{video.video_views.all.count}} views • {{video.pub_date}}</span> -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>StreamZ - Homepage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/swiper.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap">
+</head>
+
+<body>
+    <a href="{% url 'logout_url' %}">Logout</a>
+    <div class="netflix-slider">
+        <h2>Popular on Netflix</h2>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                {% for video in videos %}
+                <div class="swiper-slide">
+
+                    <a href="{% url 'watch_video' video.id %}" style="text-decoration: none;">
+                        <img src="{{ video.thumbnail.url }}" class="w-100">
+                    </a>
+                    <!-- <video class="video" width="100%" height="100%" src="http://www.schauhan.in/wp-content/uploads/2020/04/Video.mp4" autoplay="autoplay"></video> -->
+
+                    <!--Hover Content-->
+                    <div class="video_content">
+                        <div class="left_con">
+                            <div class="play_btn">
+                                <div class="circle"><i class="fa fa-play" aria-hidden="true"></i></div>
+                            </div>
+                            <div class="vid_name">{{ video.title }}</div>
+                            <div class="vid_detail">
+                                <ul class="vid_list">
+                                    <li class="c_green">99% Match</li>
+                                    <li class="br_round">13+</li>
+                                    <li>2h:33m</li>
+                                </ul>
+                            </div>
+                            <div class="vid_category">
+                                <ul class="vid_list">
+                                    <li>{{ video.genre }}</li>
+
+                                </ul>
+                            </div>
+                            <div class="down_arrow">
+                                <i onclick="myFunction()" class="fa fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="right_con">
+                            <i id="mute-video" class="fa fa-play" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <!--End Hover Content-->
+                </div>
+                {% endfor %}
+            </div>
+            <!-- Add Pagination -->
+            <!-- <div class="swiper-pagination"></div> -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
         </div>
-        {% endfor %}
-        <hr>
-
     </div>
 
-    {% endblock %}
+
+
+
+    <!--Video Detail Content-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Swiper JS -->
+
+    <script src="{% static 'js/swiper.min.js' %}"></script>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("d_container"); {
+                x.style.display = "block";
+            }
+        }
+
+        function myFunction1() {
+            var x = document.getElementById("Demodiv"); {
+                x.style.display = "block";
+            }
+        }
+    </script>
+
+
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 5,
+            spaceBetween: 5,
+            slidesPerGroup: 2,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    </script>
+
+
+
+
+</body>
+
+</html>

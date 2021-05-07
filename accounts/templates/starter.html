@@ -46,10 +46,10 @@
                 background-size: 200% auto;
             }
             75% {
-                background-size: 250% auto;
+                background-size: 230% auto;
             }
             100% {
-                background-size: 300% auto;
+                background-size: 250% auto;
             }
         }
         
@@ -62,10 +62,11 @@
 </head>
 
 <body>
+    <audio id="start_audio">
+        <source src="{% static 'audio/starter_sound.mp3' %}" type="audio/mpeg">
+    </audio>
     <div class="jumbotron jumbotron bg-cover">
-        <audio autoplay>
-            <source src="{% static 'accounts/audio/starter_sound.mp3' %}" type="audio/mpeg">
-        </audio>
+
         <!-- <div class="container">
             <h1>Starter Page</h1>
         </div> -->
@@ -76,6 +77,8 @@
         setTimeout(function() {
             window.location.href = 'accounts/';
         }, 2000);
+
+        document.getElementById('start_audio').play();
     </script>
 </body>
 

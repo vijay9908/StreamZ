@@ -24,25 +24,59 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <!-- //web font -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
     <style type="text/css">
         .jumbotron {
-            background: #000 url("media/images/starter_background.png") no-repeat center center;
-            background-size: auto;
             -moz-background-size: 100% 100%;
             -webkit-background-size: 100% 100%;
             -o-background-size: 100% 100%;
             color: #fff;
             height: calc(100vh);
+            overflow: hidden;
+        }
+        
+        @keyframes breath {
+            0% {
+                background-size: 100% auto;
+            }
+            25% {
+                background-size: 150% auto;
+            }
+            50% {
+                background-size: 200% auto;
+            }
+            75% {
+                background-size: 250% auto;
+            }
+            100% {
+                background-size: 300% auto;
+            }
+        }
+        
+        .jumbotron {
+            background-size: 100% auto;
+            animation: breath 2s linear infinite;
+            background: #000 url("media/images/starter_background.png") no-repeat center center;
         }
     </style>
 </head>
 
 <body>
     <div class="jumbotron jumbotron bg-cover">
+        <audio autoplay>
+            <source src="{% static 'accounts/audio/starter_sound.mp3' %}" type="audio/mpeg">
+        </audio>
         <!-- <div class="container">
             <h1>Starter Page</h1>
         </div> -->
     </div>
+
+
+    <script>
+        setTimeout(function() {
+            window.location.href = 'accounts/';
+        }, 2000);
+    </script>
 </body>
 
 </html>

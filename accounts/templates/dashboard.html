@@ -14,7 +14,8 @@
     <!-- <link rel="stylesheet" href="../package/css/swiper.min.css"> -->
     <!-- <link rel="stylesheet" href="css/styles.css"> -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap">
 </head>
 
@@ -28,9 +29,9 @@
         <div class="swiper-container">
             <div class="swiper-wrapper">
                 {% for video in videos %}
-                <a href="{% url 'watch_video' video.id %}" style="text-decoration: none;">
-                    <div class="swiper-slide"><img src="{{ video.thumbnail.url }}" alt="Movie Title"></div>
-                </a>
+                <div class="swiper-slide"><a href="{% url 'watch_video' video.id %}">
+                    <img src="{{ video.thumbnail.url }}" alt="Movie Title"></a>
+                </div>
                 {% endfor %}
             </div>
 
@@ -48,7 +49,10 @@
         <div class="swiper-container">
             <div class="swiper-wrapper">
                 {% for video in videos%}
-                <div class="swiper-slide"><img src="{{ video.thumbnail.url }}" alt="Movie Title"></div>
+                <div class="swiper-slide">
+                    <a href="{% url 'watch_video' video.id %}">
+                        <img src="{{ video.thumbnail.url }}" alt="Movie Title"></a>
+                </div>
                 {% endfor %}
             </div>
             <!-- Add Pagination -->
@@ -63,17 +67,31 @@
     <!-- Initialize Swiper -->
     <script>
         var swiper = new Swiper('.swiper-container', {
-            slidesPerView: 6,
+            slidesPerView: 5,
             spaceBetween: 10,
             slidesPerGroup: 2,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
             navigation: {
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev',
             },
+            breakpoints: {
+                100: {
+                    slidesPerView: 2,
+                    spaceBetween: 10,
+                },
+                640: {
+                    slidesPerView: 3,
+                    spaceBetween: 10,
+                },
+                768: {
+                    slidesPerView: 4,
+                    spaceBetween: 10,
+                },
+                1024: {
+                    slidesPerView: 5,
+                    spaceBetween: 10,
+                },
+            }
         });
     </script>
 </body>

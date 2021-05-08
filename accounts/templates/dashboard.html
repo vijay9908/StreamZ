@@ -29,15 +29,11 @@
         <div class="swiper-container">
             <div class="swiper-wrapper">
                 {% for video in videos %}
-                <<<<<<< HEAD <div class="swiper-slide">
-                    <a href="{% url 'watch_video' video.id %}"><img src="{{ video.thumbnail.url }}" alt="Movie Title"></a>
-                    =======
-                    <div class="swiper-slide">
-                        <a href="{% url 'watch_video' video.id %}">
-                            <img src="{{ video.thumbnail.url }}" alt="Movie Title"></a>
-                        >>>>>>> d2cc61a93f88ced2c89cea3680cecae391ef6598
-                    </div>
-                    {% endfor %}
+                <div class="swiper-slide">
+                    <a href="{% url 'watch_video' video.id %}">
+                        <img src="{{ video.thumbnail.url }}" alt="Movie Title"></a>
+                </div>
+                {% endfor %}
             </div>
             <!-- Add Pagination -->
             <!-- <div class="swiper-pagination"></div> -->

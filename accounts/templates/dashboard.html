@@ -29,10 +29,15 @@
         <div class="swiper-container">
             <div class="swiper-wrapper">
                 {% for video in videos %}
-                <div class="swiper-slide">
+                <<<<<<< HEAD <div class="swiper-slide">
                     <a href="{% url 'watch_video' video.id %}"><img src="{{ video.thumbnail.url }}" alt="Movie Title"></a>
-                </div>
-                {% endfor %}
+                    =======
+                    <div class="swiper-slide">
+                        <a href="{% url 'watch_video' video.id %}">
+                            <img src="{{ video.thumbnail.url }}" alt="Movie Title"></a>
+                        >>>>>>> d2cc61a93f88ced2c89cea3680cecae391ef6598
+                    </div>
+                    {% endfor %}
             </div>
             <!-- Add Pagination -->
             <!-- <div class="swiper-pagination"></div> -->
@@ -93,17 +98,31 @@
     <!-- Initialize Swiper -->
     <script>
         var swiper = new Swiper('.swiper-container', {
-            slidesPerView: 6,
+            slidesPerView: 5,
             spaceBetween: 10,
             slidesPerGroup: 2,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
             navigation: {
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev',
             },
+            breakpoints: {
+                100: {
+                    slidesPerView: 2,
+                    spaceBetween: 10,
+                },
+                640: {
+                    slidesPerView: 3,
+                    spaceBetween: 10,
+                },
+                768: {
+                    slidesPerView: 4,
+                    spaceBetween: 10,
+                },
+                1024: {
+                    slidesPerView: 5,
+                    spaceBetween: 10,
+                },
+            }
         });
 
         const netflix_open_btn = document.querySelector('.netflix-open-btn');

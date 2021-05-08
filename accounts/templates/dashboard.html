@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="{% static 'css/swiper.min.css' %}">
     <!-- <link rel="stylesheet" href="../package/css/swiper.min.css"> -->
     <!-- <link rel="stylesheet" href="css/styles.css"> -->
+    <script src="https://kit.fontawesome.com/99e447fb89.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap">
@@ -20,20 +21,19 @@
 
 <body>
     <!-- Swiper -->
-    <h1>NETFLIX</h1>
+    <h1>StreamZ</h1>
 
     <div class="netflix-slider">
-        <h2>Popular on Netflix</h2>
+        <h2>Popular on StreamZ</h2>
 
         <div class="swiper-container">
             <div class="swiper-wrapper">
                 {% for video in videos %}
-                <a href="{% url 'watch_video' video.id %}" style="text-decoration: none;">
-                    <div class="swiper-slide"><img src="{{ video.thumbnail.url }}" alt="Movie Title"></div>
-                </a>
+                <div class="swiper-slide">
+                    <a href="{% url 'watch_video' video.id %}"><img src="{{ video.thumbnail.url }}" alt="Movie Title"></a>
+                </div>
                 {% endfor %}
             </div>
-
             <!-- Add Pagination -->
             <!-- <div class="swiper-pagination"></div> -->
             <div class="swiper-button-next"></div>
@@ -42,13 +42,14 @@
         </div>
     </div>
 
-
     <div class="netflix-slider">
         <h2>Continue watching...</h2>
         <div class="swiper-container">
             <div class="swiper-wrapper">
                 {% for video in videos%}
-                <div class="swiper-slide"><img src="{{ video.thumbnail.url }}" alt="Movie Title"></div>
+                <div class="swiper-slide">
+                    <a href="{% url 'watch_video' video.id %}"><img src="{{ video.thumbnail.url }}" alt="Movie Title"></a>
+                </div>
                 {% endfor %}
             </div>
             <!-- Add Pagination -->
@@ -56,6 +57,35 @@
             <div class="swiper-button-prev"></div>
         </div>
     </div>
+
+    <div class="netflix-nav netflix-nav-black">
+        <div class="netflix-nav netflix-nav-red">
+            <div class="netflix-nav netflix-nav-white">
+                <div class="netflix-nav-container">
+                    <button class="netflix-nav-btn netflix-close-btn"><i class="fas fa-times"></i></button>
+                    <img class="netflix-logo" src="logo.png" alt="Netflix Logo" />
+                    <ul class="netflix-list">
+                        <li><a href="#">Teams</a></li>
+                        <li><a href="#">Locations</a></li>
+                        <li><a href="#">Life at netflix</a></li>
+                        <li>
+                            <ul>
+                                <li><a href="#">Netflix culture memo</a></li>
+                                <li><a href="#">Work life philosophy</a></li>
+                                <li><a href="#">Inclusion & Diversity</a></li>
+                                <li><a href="#">Wearenetflix</a></li>
+                                <li><a href="#">Blog</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="netflix-nav-btn netflix-open-btn">
+        <i class="fas fa-bars"></i>
+    </button>
 
     <!-- Swiper JS -->
     <script src="{% static 'js/swiper.min.js' %}"></script>
@@ -74,6 +104,22 @@
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev',
             },
+        });
+
+        const netflix_open_btn = document.querySelector('.netflix-open-btn');
+        const netflix_close_btn = document.querySelector('.netflix-close-btn');
+        const netflix_nav = document.querySelectorAll('.netflix-nav');
+
+        netflix_open_btn.addEventListener('click', () => {
+            netflix_nav.forEach(nav_el => {
+                nav_el.classList.add('visible')
+            });
+        });
+
+        netflix_close_btn.addEventListener('click', () => {
+            netflix_nav.forEach(nav_el => {
+                nav_el.classList.remove('visible')
+            });
         });
     </script>
 </body>

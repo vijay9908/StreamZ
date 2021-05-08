@@ -16,9 +16,7 @@ def index_view(request):
         context = { "videos" : vids}
         return render(request,'index.html', context)
     else:
-        vids = Video.objects.all().order_by('-id')
-        context = { "videos" : vids}
-        return render(request, 'dashboard.html', context)
+        return redirect('dashboard')
 
 def watch_video(request, video_id):
     try:

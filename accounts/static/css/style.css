@@ -2,7 +2,7 @@ html,
 body {
     position: relative;
     height: 100%;
-    overflow: hidden;
+    overflow: auto;
 }
 
 body {
@@ -12,6 +12,17 @@ body {
     color: #fff;
     margin: 0;
     padding: 0;
+}
+
+body::-webkit-scrollbar {
+    background-color: transparent;
+    width: 20px;
+}
+body::-webkit-scrollbar-thumb {
+    background-color: #d6dee1;
+    border-radius: 20px;
+    border: 6px solid transparent;
+    background-clip: content-box;
 }
 
 .swiper-container {

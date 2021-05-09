@@ -10,7 +10,9 @@ urlpatterns = [
     path('register/', views.register_view, name="register"),
     path('logout/', LogoutView.as_view(next_page='dashboard'), name="logout_url"),
     path('profile/', views.profile, name="profile"),
+    path('subscription/', views.subscription, name="subscription"),
     path('404/', views.not_found, name="not_found"),
     path('about/', views.about, name="about_page"),
+    path('payment/', views.payment, name="payment"),
     # path('<str:session_username>/profile/', views.profile,name="profile"), # for Recommendation Engine @subhash
 ]

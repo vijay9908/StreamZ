@@ -1,0 +1,19 @@
+.box {
+    width: 400px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: #191919;
+    text-align: center;
+}
+
+#box1{
+    position: absolute;
+    top: 50%;
+    left: 25%;
+}
+
+#box2{
+    position: absolute;
+    top: 50%;
+    left: 75%;
+}

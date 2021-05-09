@@ -79,7 +79,7 @@
 
 <body>
     <!-- Swiper -->
-    <h1>StreamZ</h1>
+    <h1><img class="netflix-logo" src="/media/images/streamZ_logo.png" alt="Netflix Logo" /></h1>
     <div class="wrap1">
         <div class="search">
             <input type="text" class="searchTerm" placeholder="What are you looking for?">
@@ -109,6 +109,40 @@
         </div>
     </div>
 
+
+    <div class="netflix-slider">
+        <h2>&nbsp;&nbsp;Continue Watching</h2>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                {% for video in videos%}
+                <div class="swiper-slide">
+                    <a href="{% url 'watch_video' video.id %}">
+                        <img src="{{ video.thumbnail.url }}" alt="Movie Title"></a>
+                </div>
+                {% endfor %}
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </div>
+
+    <div class="netflix-slider">
+        <h2>&nbsp;&nbsp;Continue Watching</h2>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                {% for video in videos%} {% if video.genre == 'Fantasy'%}
+                <div class="swiper-slide">
+                    <a href="{% url 'watch_video' video.id %}">
+                        <img src="{{ video.thumbnail.url }}" alt="Movie Title"></a>
+                </div>
+                {% endif %} {% endfor %}
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </div>
 
     <div class="netflix-slider">
         <h2>&nbsp;&nbsp;Continue Watching</h2>

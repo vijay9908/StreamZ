@@ -17,6 +17,11 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap">
+    <style>
+        .options {
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
@@ -29,8 +34,9 @@
         <div class="swiper-container">
             <div class="swiper-wrapper">
                 {% for video in videos %}
-                <div class="swiper-slide"><a href="{% url 'watch_video' video.id %}">
-                    <img src="{{ video.thumbnail.url }}" alt="Movie Title"></a>
+                <div class="swiper-slide">
+                    <a href="{% url 'watch_video' video.id %}">
+                        <img src="{{ video.thumbnail.url }}" alt="Movie Title"></a>
                 </div>
                 {% endfor %}
             </div>
@@ -66,13 +72,29 @@
             <div class="netflix-nav netflix-nav-white">
                 <div class="netflix-nav-container">
                     <button class="netflix-nav-btn netflix-close-btn"><i class="fas fa-bars"></i></button>
-                    <img class="netflix-logo" src="logo.png" alt="Netflix Logo" />
+                    <img class="netflix-logo" src="/media/images/starter_background.png" alt="Netflix Logo" />
                     <ul class="netflix-list">
                         <ul>
-                            <li><a href="{% url 'profile' %}">Profile</a></li>
-                            <li><a href="#">Settings</a></li>
-                            <li><a href="#">About</a></li>
-                            <li><a href="{% url 'logout_url' %}">Logout</a></li>
+                            <li class="options">
+                                <a href="{% url 'profile' %}">
+                                    <h5>Profile</h5>
+                                </a>
+                            </li>
+                            <li class="options">
+                                <a href="{% url 'not_found' %}">
+                                    <h5>Settings</h5>
+                                </a>
+                            </li>
+                            <li class="options">
+                                <a href="{% url 'about_page' %}">
+                                    <h5>About</h5>
+                                </a>
+                            </li>
+                            <li class="options">
+                                <a href="{% url 'logout_url' %}">
+                                    <h5>Logout</h5>
+                                </a>
+                            </li>
                         </ul>
                     </ul>
                 </div>

@@ -10,7 +10,6 @@ from django.core.exceptions import ObjectDoesNotExist   # for further icing @sub
 # Create your views here.
 
 def index_view(request):
-    #return render(request,'index.html', context)
     if not request.user.is_authenticated:
         vids = Video.objects.all().order_by('-id')#[:5] # alpha testing - 5 vids available
         context = { "videos" : vids}
@@ -64,6 +63,9 @@ def login_view(request):
         form = AuthenticationForm()
     return render(request, 'registration/login.html', {'form': form})
 
+def about(request):
+    return render(request, 'about.html')
+    
 def profile(request):  #session_username
     try:
         session_obj = User.objects.get(username = request.user.username)
@@ -71,8 +73,11 @@ def profile(request):  #session_username
         return render(request, '404.html')
     profile_data = UserData.objects.get_or_create(user=session_obj)[0]
     context = {'session_obj': session_obj, 'user_data': profile_data}
-    return render(request, 'profile.html', context)   #profile stuff - likith handle this.
+    return render(request, 'profile.html', context)   #profile stuff - likith handle this space.
 
 def starter_page(request):
     context = {}
     return render(request, 'starter.html', context)
+
+def not_found(request):
+    return render(request, '404.html')

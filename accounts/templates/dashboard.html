@@ -17,6 +17,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <script src="https://kit.fontawesome.com/99e447fb89.js" crossorigin="anonymous"></script>
 
@@ -81,16 +82,16 @@
     <!-- Swiper -->
     <h1><img class="netflix-logo" src="/media/images/streamZ_logo.png" alt="Netflix Logo" /></h1>
     <div class="wrap1">
-        <div class="search">
-            <input type="text" class="searchTerm" placeholder="What are you looking for?">
-            <button type="submit" class="searchButton">
+        <form class="search">
+            <input id="search_field" type="text" class="searchTerm" placeholder="What are you looking for?">
+            <button id="submit_button" type="submit" class="searchButton">
              <i class="fa fa-search"></i>
           </button>
-        </div>
+        </form>
     </div>
 
     <div class="netflix-slider">
-        <h2>&nbsp;&nbsp;Popular on StreamZ</h2>
+        <h2>&nbsp;<i class="fas fa-fire"></i>&nbsp;Popular on StreamZ</h2>
         <div class="swiper-container">
             <div class="swiper-wrapper">
                 {% for video in videos %}
@@ -110,8 +111,8 @@
     </div>
 
 
-    <div class="netflix-slider">
-        <h2>&nbsp;&nbsp;Continue Watching</h2>
+    <div id="continue_watching" class="netflix-slider">
+        <h2>&nbsp;<img src="/media/icons/Continue.png" style="width: 30px; height: 25px; position:relative;">&nbsp;Continue Watching</h2>
         <div class="swiper-container">
             <div class="swiper-wrapper">
                 {% for video in videos%}
@@ -127,8 +128,8 @@
         </div>
     </div>
 
-    <div class="netflix-slider">
-        <h2>&nbsp;&nbsp;Continue Watching</h2>
+    <div id="Fantasy" class="netflix-slider">
+        <h2>&nbsp;<i class="fab fa-fantasy-flight-games">&nbsp;</i>Fantasy</h2>
         <div class="swiper-container">
             <div class="swiper-wrapper">
                 {% for video in videos%} {% if video.genre == 'Fantasy'%}
@@ -144,16 +145,16 @@
         </div>
     </div>
 
-    <div class="netflix-slider">
-        <h2>&nbsp;&nbsp;Continue Watching</h2>
+    <div id="Action" class="netflix-slider">
+        <h2><i class="material-icons" style="font-size:36px">spellcheck</i>Action</h2>
         <div class="swiper-container">
             <div class="swiper-wrapper">
-                {% for video in videos%}
+                {% for video in videos%} {% if video.genre == 'Action' %}
                 <div class="swiper-slide">
                     <a href="{% url 'watch_video' video.id %}">
                         <img src="{{ video.thumbnail.url }}" alt="Movie Title"></a>
                 </div>
-                {% endfor %}
+                {% endif %} {% endfor %}
             </div>
             <!-- Add Pagination -->
             <div class="swiper-button-next"></div>
@@ -248,6 +249,42 @@
             netflix_nav.forEach(nav_el => {
                 nav_el.classList.remove('visible')
             });
+        });
+
+        var searchButton = document.getElementById("submit_button"),
+            searchText = document.getElementById("search_field");
+
+        // the text property is what the search input is compared against
+        // once a match is found, the id property is used to lookup the element
+        var items = [{
+            text: 'fantasy',
+            id: 'Fantasy'
+        }, {
+            text: 'action',
+            id: 'Action'
+        }, {
+            text: 'adventure',
+            id: 'Adventure'
+        }, {
+            text: 'horror',
+            id: 'Horror'
+        }];
+
+        function searchForItem(query) {
+            for (var i = 0; i < items.length; i++) {
+                if (items[i].text.indexOf(query) !== -1) {
+                    return document.getElementById(items[i].id);
+                }
+            }
+        }
+
+        searchButton.addEventListener('click', function() {
+            alert('Build in Progress :-)');
+            var query = searchText.value,
+                item = searchForItem(query);
+            if (typeof item !== 'undefined') {
+                item.scrollIntoView();
+            }
         });
     </script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

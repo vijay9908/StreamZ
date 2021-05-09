@@ -79,5 +79,13 @@ def starter_page(request):
     context = {}
     return render(request, 'starter.html', context)
 
+def subscription(request):
+    context = {}
+    return render(request, 'subscription.html', context)
+
+def payment(request):
+    context = {}
+    return render(request, 'payment.html', context)
+
 def not_found(request):
     return render(request, '404.html')

@@ -3,12 +3,11 @@
 <title>StreamZ-Login</title>
 
 <link rel="stylesheet" type="text/css" href="{% static 'accounts/login.css' %}">
-
 <body>
 
     <form class="box" method="post">
 
-        <h2>Login</h2>
+        <h2><img class="streamZ_logo" src="/media/images/streamZ_logo.png" alt="streamZ_Logo" /></h2>
         <div class="column">
             <div class="column">
                 {% csrf_token %} {% for field in form %}

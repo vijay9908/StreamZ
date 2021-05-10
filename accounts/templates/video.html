@@ -5,7 +5,7 @@
 <!-- <h2>Video watch page</h2> -->
 
 <body>
-    <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="{% url 'dashboard' %}" style="text-decoration: none;">&larr;&nbsp;&nbsp;Back&nbsp;&nbsp;&nbsp;</a>
+    <a href="{% url 'dashboard' %}" class="btn btn-warning">Back to dashboard</a>
     <h4 style="text-align: center; color: aquamarine; ">
         <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Title: {{ video.title }} <spann><p style="text-align: right; font-size:19px; float:right; color: white;">Genre: {{ video.genre }} &nbsp;&nbsp;</p></spann></strong>
     </h4>

@@ -115,12 +115,12 @@
         <h2>&nbsp;<img src="/media/icons/Continue.png" style="width: 30px; height: 25px; position:relative;">&nbsp;Continue Watching</h2>
         <div class="swiper-container">
             <div class="swiper-wrapper">
-                {% for video in videos%}
+                {% for video in videos %} {% if video.genre == 'misc' %}
                 <div class="swiper-slide">
                     <a href="{% url 'watch_video' video.id %}">
                         <img src="{{ video.thumbnail.url }}" alt="Movie Title"></a>
                 </div>
-                {% endfor %}
+                {% endif %} {% endfor %}
             </div>
             <!-- Add Pagination -->
             <div class="swiper-button-next"></div>
@@ -150,6 +150,23 @@
         <div class="swiper-container">
             <div class="swiper-wrapper">
                 {% for video in videos%} {% if video.genre == 'Action' %}
+                <div class="swiper-slide">
+                    <a href="{% url 'watch_video' video.id %}">
+                        <img src="{{ video.thumbnail.url }}" alt="Movie Title"></a>
+                </div>
+                {% endif %} {% endfor %}
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </div>
+
+    <div id="Action" class="netflix-slider">
+        <h2><i class='fab fa-galactic-senate' style='font-size:24px'>&nbsp;</i>Science Fiction</h2>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                {% for video in videos%} {% if video.genre == 'Sci-Fi' %}
                 <div class="swiper-slide">
                     <a href="{% url 'watch_video' video.id %}">
                         <img src="{{ video.thumbnail.url }}" alt="Movie Title"></a>

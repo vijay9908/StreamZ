@@ -3,8 +3,13 @@
 <link rel="stylesheet" type="text/css" href="{% static '/video.css' %}">
 
 <!-- <h2>Video watch page</h2> -->
+
 <body>
-    <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="{% url 'dashboard' %}">&larr;&nbsp;&nbsp;Back&nbsp;&nbsp;&nbsp;</a>
+    <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="{% url 'dashboard' %}" style="text-decoration: none;">&larr;&nbsp;&nbsp;Back&nbsp;&nbsp;&nbsp;</a>
+    <h4 style="text-align: center; color: aquamarine; ">
+        <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Title: {{ video.title }} <spann><p style="text-align: right; font-size:19px; float:right; color: white;">Genre: {{ video.genre }} &nbsp;&nbsp;</p></spann></strong>
+    </h4>
+
     <video name='demo' controls autoplay width='100%' height='90%'>
         <!-- <source src="{{ MEDIA_URL }}sample_video.mp4" type="video/mp4"></source> -->
         <source src="{{ video.video_file.url }}" type="video/mp4">

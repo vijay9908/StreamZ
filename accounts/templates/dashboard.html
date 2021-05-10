@@ -82,7 +82,7 @@
     <!-- Swiper -->
     <h1><img class="netflix-logo" src="/media/images/streamZ_logo.png" alt="Netflix Logo" /></h1>
     <div class="wrap1">
-        <span float="right" style="text-align: right; position: relative; margin-left: 80%">Dashboard Views: Welcome <em style="color: grey; font-size:16px">{{ user.username}}</em></span>
+        <span float="right" style="text-align: right; position: relative; margin-left: 80%">Welcome <em style="color: grey; font-size:16px">{{ user.username}}</em></span>
         <form class="search">
             <input id="search_field" type="text" class="searchTerm" placeholder="What are you looking for?">
             <button id="submit_button" type="submit" class="searchButton">
@@ -92,7 +92,7 @@
     </div>
 
     <div class="netflix-slider">
-        <h2>&nbsp;<i class="fas fa-fire"></i>&nbsp;Popular on StreamZ</h2>
+        <h2>&nbsp;<i class="fas fa-fire"></i>&nbsp;Popular on <span style="color:#e25822;">StreamZ</span></h2>
         <div class="swiper-container">
             <div class="swiper-wrapper">
                 {% for video in videos %}

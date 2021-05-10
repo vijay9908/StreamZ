@@ -3,6 +3,7 @@
 <title>StreamZ-Login</title>
 
 <link rel="stylesheet" type="text/css" href="{% static 'accounts/login.css' %}">
+
 <body>
 
     <form class="box" method="post">
@@ -19,15 +20,11 @@
 
             {% for error in form.username.errors %}
             <p class="text-danger">{{ error }}</p>
-            {% endfor %}
-
-            {% if form.non_field_errors %}
-            {% for error in form.non_field_errors %}
+            {% endfor %} {% if form.non_field_errors %} {% for error in form.non_field_errors %}
             <p class="text-danger">{{ error }}</p>
-            {% endfor %}
-            {% endif %}
+            {% endfor %} {% endif %}
 
-            <h6>Don't have an account? <a href="{% url 'register' %}"><strong>register here!</strong></a></h6>
+            <h6>Don't have an account? <a href="{% url 'register' %}"><strong style="color: orange;">register here!</strong></a></h6>
         </div>
     </form>
 </body>

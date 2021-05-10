@@ -8,7 +8,7 @@ The following folder has the documentation prepared with all the SE steps follow
 
 [Software requirement specification (SRS)](https://drive.google.com/file/d/1YKYFkZbOwhASNs7PFR4IRXAi8jgB87Ek/view?usp=sharing)
 
-[Use-case Diagram](https://drive.google.com/file/d/1da8WVXbpyeQuUktQWfv9XL_ecZbr6zcD/view?usp=sharing)
+[Use-case Diagram](https://drive.google.com/file/d/1tpGZEsGRce3TN7tJUsVfEJeMENQk-DuY/view?usp=sharing)
 
 [Class Diagram](https://drive.google.com/file/d/1Pl3BqF4xQJWwuWiEz-MMWPo4ORoD41AH/view?usp=sharing)
 

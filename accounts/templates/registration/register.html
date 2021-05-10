@@ -17,7 +17,7 @@
         </div>
 
         {% if messages %} {% for message in messages %}
-        <p class="text-success">{{ message }} <a href="{% url 'login_url' %}"><strong>login here!</strong></a></p>
+        <p class="text-success">{{ message }} <a href="{% url 'login_url' %}"><strong style="color:orange">login here!</strong></a></p>
         {% endfor %} {% endif %} {% if form.errors %}
         <div class="alert alert-error">
             {% for field in form %} {% if field.errors %} {% for error in field.errors %}
@@ -28,7 +28,7 @@
         </div>
         {% endif %}
 
-        <h6>Already have an account? <a href="{% url 'login_url' %}"><strong>login here!</strong></a></h6>
+        <h6>Already have an account? <a href="{% url 'login_url' %}"><strong style="color:orange">login here!</strong></a></h6>
     </form>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>

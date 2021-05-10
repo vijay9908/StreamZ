@@ -1,22 +1,77 @@
 {% load static %}
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <title>View Plans</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="{% static 'css/subscribe.css' %}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 
 <body>
-    <h1><strong>View Plans</strong></h1>
-    <div class="box" id="box1">
-        <a href="{% url 'payment' %}" class="btn btn-primary">Subscribe Now!</a>  
-    </div>
-    <div class="box" id="box2">
-        <a href="{% url 'payment' %}" class="btn btn-primary">Subscribe Now!</a>  
-    </div>
+    <a href="{% url 'dashboard' %}" class="btn btn-warning">Back to dashboard</a>
+    <h1><img class="streamZ_logo" src="/media/images/streamZ_logo.png" alt="Netflix Logo" /></h1>
+    <h2><strong>View Plans</strong></h2>
+    <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="card">
+
+                <!-- Card image -->
+                <div class="view overlay">
+                    <img class="card-img-top" src="/media/images/monthly_subscription.png"
+                        alt="Rs 99">
+                    <a href="#!">
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+    
+                <!-- Card content -->
+                <div class="card-body">
+    
+                    <!-- Title -->
+                    <h4 class="card-title">Monthly Plan</h4>
+                    <!-- Text -->
+                    <p class="card-text">Pay at your convenience monthly.</p>
+                    <p class="card-text">Active sessions limited to 1 device</p>
+                    <!-- Button -->
+                    <a href="{% url 'payment' %}" class="btn btn-primary">Subscribe Now!</a>
+    
+                </div>
+    
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+
+                <!-- Card image -->
+                <div class="view overlay">
+                    <img class="card-img-top" src="/media/images/yearly_subscription.png"
+                        alt="Rs 999">
+                    <a href="#!">
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+    
+                <!-- Card content -->
+                <div class="card-body">
+    
+                    <!-- Title -->
+                    <h4 class="card-title">Yearly Plan</h4>
+                    <!-- Text -->
+                    <p class="card-text">Pay once and enjoy for an year</p>
+                    <p class="card-text">Active sessions limited to 1 device</p>
+                    <!-- Button -->
+                    <a href="{% url 'payment' %}" class="btn btn-primary">Subscribe Now!</a>
+    
+                </div>
+    
+            </div>
+          </div>
+        </div>
 </body>
 
 </html>

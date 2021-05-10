@@ -1,19 +1,7 @@
-.box {
-    width: 400px;
-    padding: 40px;
-    transform: translate(-50%, -50%);
-    background: #191919;
-    text-align: center;
-}
-
-#box1{
+.streamZ_logo{
+    width: 200px;
     position: absolute;
-    top: 50%;
-    left: 25%;
-}
-
-#box2{
-    position: absolute;
-    top: 50%;
-    left: 75%;
+    top: 5%;
+    left: 42.5%;
+    z-index: 2
 }

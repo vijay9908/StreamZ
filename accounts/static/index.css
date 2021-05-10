@@ -1,5 +1,5 @@
 :root {
-    --primary-color: #e50914;
+    --primary-color: rgb(234, 90, 42);
     --dark-color: #141414;
     --light-color: #f4f4f4;
 }
@@ -321,7 +321,7 @@ img {
 
 .btn:hover {
     opacity: 0.9;
-    color: orange;
+    color: white;
 }
 
 .btn-rounded {

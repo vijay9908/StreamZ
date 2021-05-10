@@ -1,5 +1,9 @@
 # StreamZ
+![GitHub](https://img.shields.io/github/license/vijay9908/StreamZ)
+![GitHub last commit](https://img.shields.io/github/last-commit/vijay9908/StreamZ)
+
 #### A video streaming platform made as a project for Software-Engineering in S6.
+
 The following folder has the documentation prepared with all the SE steps followed in each phase. 
 
 [Software requirement specification (SRS)](https://drive.google.com/file/d/1YKYFkZbOwhASNs7PFR4IRXAi8jgB87Ek/view?usp=sharing)
@@ -12,10 +16,6 @@ The following folder has the documentation prepared with all the SE steps follow
 
 [Test-plan](https://drive.google.com/file/d/16fObVgrN33gBmgHAgOcLI7g2kSDt6mpg/view?usp=sharing)
 
-
-
-![GitHub](https://img.shields.io/github/license/vijay9908/StreamZ)
-![GitHub last commit](https://img.shields.io/github/last-commit/vijay9908/StreamZ)
 
 #### 🛠 How to Run Locally & Develop ?
 1. Install [Python](https://www.python.org/downloads/) and [Pipenv](https://pypi.org/project/pipenv/).
